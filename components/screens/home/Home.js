@@ -3,19 +3,13 @@ import {
   StyleSheet,
   Text, 
   View, 
-  TextInput, 
   KeyboardAvoidingView, 
-  Image,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { 
-  Button,
-  CheckBox,
-  Icon 
-} from 'react-native-elements';
 import { LinearGradient } from 'expo';
 
 import PetListScreen from '../petlist/PetList.js';
+
 import { Logo } from '../../shared/Logo.js';
 import { LocationInput } from './LocationInput.js';
 import { SearchOrFilter } from './SearchOrFilter.js';
@@ -114,12 +108,5 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#fff',
     fontWeight: '900'
-  },
-  checkContainer: {
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-  },
-  checkText: {
-    color: '#fff',
   }
 });
