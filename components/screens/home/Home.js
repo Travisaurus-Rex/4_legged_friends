@@ -8,12 +8,9 @@ import {
 import { StackNavigator } from 'react-navigation';
 import { LinearGradient } from 'expo';
 
-import PetListScreen from '../petlist/PetList.js';
-
 import { Logo } from '../../shared/Logo.js';
 import { LocationInput } from './LocationInput.js';
 import { SearchOrFilter } from './SearchOrFilter.js';
-import { url } from '../../../config.js';
 
 export default class HomeScreen extends React.Component {
 
@@ -26,8 +23,7 @@ export default class HomeScreen extends React.Component {
     this.state = { 
       zipCodeSubmitted: false,
       zipCode: 0,
-      zipCodeValid: false,
-      animal: ''
+      zipCodeValid: false
     };
   }
 
@@ -55,8 +51,13 @@ export default class HomeScreen extends React.Component {
 
   search = () => {
     this.props.navigation.navigate('PetList', { 
-      zipCode: this.state.zipCode,
-      animal: this.state.animal
+      zipCode: this.state.zipCode
+    })
+  }
+
+  goToFiltersScreen = () => {
+    this.props.navigation.navigate('Filters', {
+      zipCode: this.state.zipCode
     })
   }
 
@@ -80,7 +81,7 @@ export default class HomeScreen extends React.Component {
             <Text style={{ color: '#fff', paddingTop: 24}}>The zip code you entered was not valid</Text>
           }
           { !!this.state.zipCodeValid &&
-            <SearchOrFilter search={this.search} />
+            <SearchOrFilter filters={this.goToFiltersScreen} search={this.search} />
           }
         </KeyboardAvoidingView>
       </LinearGradient>
