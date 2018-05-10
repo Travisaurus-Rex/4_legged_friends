@@ -12,6 +12,7 @@ export const SearchOrFilter = (props) => {
           backgroundColor: 'transparent'
         }}
         title="FILTERS"
+        onPress={props.filters}
       />
       <Button
         iconRight={{name: 'search', color: '#23d69d'}}
