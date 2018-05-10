@@ -4,6 +4,7 @@ import { StackNavigator } from 'react-navigation';
 import { LinearGradient } from 'expo';
 
 import { AnimalPicker } from './AnimalPicker.js';
+import { AgePicker } from './AgePicker.js';
 
 export default class FiltersScreen extends Component {
 
@@ -21,12 +22,18 @@ export default class FiltersScreen extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			animal: 'Dog'
+			animal: 'Dog',
+			animalIndex: 0,
+			ageIndex: 0,
 		};
 	}
 
-	updateAnimal = animal => {
-		this.setState({ animal });
+	updateAnimal = (index, animal) => {
+		this.setState({ animalIndex: index, animal });
+	}
+
+	updateAge = (index, age) => {
+		this.setState({ageIndex: index, age})
 	}
 
 	render() {
@@ -41,7 +48,14 @@ export default class FiltersScreen extends Component {
         style={{width: '100%', height: '100%'}}
       >
 				<View style={styles.container}>
-					<AnimalPicker selected={this.state.animal} update={this.updateAnimal} />
+					<AnimalPicker 
+						selected={this.state.animalIndex} 
+						update={this.updateAnimal} 
+					/>
+					<AgePicker 
+						selected={this.state.ageIndex} 
+						update={this.updateAge} 
+					/>
 				</View>
 			</LinearGradient>
 		)

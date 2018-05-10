@@ -2,13 +2,13 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
 
-export const AnimalPicker = (props) => {
+export const AgePicker = (props) => {
 
-	const buttons = ['Any', 'Dog', 'Cat', 'Bird', 'Other'];
+	const buttons = ['Any', 'Baby', 'Young', 'Adult', 'Senior'];
 
 	return (
-		<View style={styles.view}>
-			<Text style={styles.label}>Type of animal</Text>
+		<View>
+			<Text style={styles.label}>Age</Text>
 			<ButtonGroup
 				innerBorderStyle={{ color: '#fff', width: 1 }}
 				onPress={selectedIndex => props.update(selectedIndex, buttons[selectedIndex])}
