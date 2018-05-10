@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo';
 
 import { AnimalPicker } from './AnimalPicker.js';
 import { AgePicker } from './AgePicker.js';
+import { GenderPicker } from './GenderPicker.js';
 
 export default class FiltersScreen extends Component {
 
@@ -25,15 +26,20 @@ export default class FiltersScreen extends Component {
 			animal: 'Dog',
 			animalIndex: 0,
 			ageIndex: 0,
+			gender: 'none'
 		};
 	}
 
 	updateAnimal = (index, animal) => {
-		this.setState({ animalIndex: index, animal });
+		this.setState({ animalIndex: index, animal })
 	}
 
 	updateAge = (index, age) => {
 		this.setState({ageIndex: index, age})
+	}
+
+	updateGender = (gender) => {
+		this.setState({ gender })
 	}
 
 	render() {
@@ -55,6 +61,10 @@ export default class FiltersScreen extends Component {
 					<AgePicker 
 						selected={this.state.ageIndex} 
 						update={this.updateAge} 
+					/>
+					<GenderPicker
+						gender={this.state.gender}
+						select={this.updateGender}
 					/>
 				</View>
 			</LinearGradient>
