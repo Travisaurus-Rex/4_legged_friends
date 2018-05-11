@@ -30,7 +30,9 @@ export default class PetListScreen extends React.Component {
 
     let data = {
         zipCode: navigation.getParam('zipCode', null),
-        animal: navigation.getParam('animal', null)
+        animal: navigation.getParam('animal', null),
+        age: navigation.getParam('age', null),
+        gender: navigation.getParam('gender', null),
     };
 
     fetch(`${url}/pet/find`, {

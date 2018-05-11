@@ -4,8 +4,6 @@ import { CheckBox } from 'react-native-elements';
 
 export const GenderPicker = (props) => {
 
-	const { gender } = props;
-
 	checkCurrentSelection = (val) => {
 		if (props.gender === val) {
 			props.select('none');
@@ -23,7 +21,7 @@ export const GenderPicker = (props) => {
 				checkedIcon="radio-button-checked"
 				uncheckedColor="#fff"
 				checkedColor="#fff"
-				checked={gender == "male" ? true : false}
+				checked={props.gender == 'male' ? true : false}
 				onPress={() => checkCurrentSelection('male')}
 				textStyle={{color: '#fff'}}
 				title="Male"
@@ -35,7 +33,7 @@ export const GenderPicker = (props) => {
 				checkedIcon="radio-button-checked"
 				uncheckedColor="#fff"
 				checkedColor="#fff"
-				checked={gender == "female" ? true : false}
+				checked={props.gender == 'female' ? true : false}
 				onPress={() => checkCurrentSelection('female')}
 				textStyle={{color: '#fff'}}
 				title="Female"
