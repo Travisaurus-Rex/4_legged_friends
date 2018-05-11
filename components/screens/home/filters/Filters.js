@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Button } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 import { LinearGradient } from 'expo';
 
+import { Logo } from '../../../shared/Logo.js';
 import { AnimalPicker } from './AnimalPicker.js';
 import { AgePicker } from './AgePicker.js';
 import { GenderPicker } from './GenderPicker.js';
@@ -17,14 +19,18 @@ export default class FiltersScreen extends Component {
 			borderBottomWidth: 1,
 			borderColor: '#fff',
 			elevation: 0
-		}
+		},
+		headerRight: (
+			<Logo size={{width: 35, height: 35, marginRight: 20}} />
+		)
 	}
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			animal: 'Dog',
+			animal: 'Any',
 			animalIndex: 0,
+			age: 'Any',
 			ageIndex: 0,
 			gender: 'none'
 		};
@@ -42,9 +48,18 @@ export default class FiltersScreen extends Component {
 		this.setState({ gender })
 	}
 
-	render() {
+	search = () => {
+		if (this.props.zipCode) {
+			this.props.navigation.navigate('PetList', {
+				zipCode: this.props.zipCode,
+				animal: this.state.animal,
+				age: this.state.age,
+				gender: this.state.gender
+			})
+		}
+	}
 
-		const { navigation } = this.props;
+	render() {
 
 		return (
 			<LinearGradient
@@ -66,6 +81,11 @@ export default class FiltersScreen extends Component {
 						gender={this.state.gender}
 						select={this.updateGender}
 					/>
+					<Button
+						containerStyle={styles.button}
+						title="Search"
+						onPress={this.search}
+					/>
 				</View>
 			</LinearGradient>
 		)
@@ -77,7 +97,11 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1, 
 		marginTop: 100, 
-		padding: 6, 
-		justifyContent: 'center'
+		justifyContent: 'center',
+		width: '100%'
+	},
+	button: {
+		width: '100%',
+		backgroundColor: 'transparent'
 	}
 })
