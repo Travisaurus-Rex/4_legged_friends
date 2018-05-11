@@ -1,9 +1,9 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
-import HomeScreen from './components/screens/home/Home.js';
-import PetListScreen from './components/screens/petlist/PetList.js';
-import FiltersScreen from './components/screens/home/filters/Filters.js';
+import HomeScreen from './components/screens/home/HomeScreen.js';
+import PetListScreen from './components/screens/petlist/PetListScreen.js';
+import FiltersScreen from './components/screens/home/filters/FiltersScreen.js';
 
 const RootStack = StackNavigator(
   {
@@ -18,7 +18,7 @@ const RootStack = StackNavigator(
     }
   }, 
   {
-      initialRouteName: 'Home',
+      initialRouteName: 'Filters',
   }
 );
 

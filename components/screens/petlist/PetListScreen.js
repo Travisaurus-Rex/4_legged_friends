@@ -21,6 +21,7 @@ export default class PetListScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    
     this.state = {};
   }
 
@@ -72,6 +73,10 @@ export default class PetListScreen extends React.Component {
     );
 
     this.setState({pet: jsx});
+  }
+
+  componentWillUnmount = () => {
+    this.setState({pet: null});
   }
 
   render() {

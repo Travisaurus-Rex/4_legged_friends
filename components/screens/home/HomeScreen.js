@@ -9,7 +9,7 @@ import { StackNavigator } from 'react-navigation';
 import { LinearGradient } from 'expo';
 
 import { Logo } from '../../shared/Logo.js';
-import { LocationInput } from './LocationInput.js';
+import { Location } from './Location.js';
 import { SearchOrFilter } from './SearchOrFilter.js';
 
 export default class HomeScreen extends React.Component {
@@ -76,7 +76,7 @@ export default class HomeScreen extends React.Component {
         >
           <Logo size={{ width: 200, height: 200}} />
           <Text style={styles.text}>Enter a location to get started</Text>
-          <LocationInput setzip={this.setZipCode} submit={this.submitZipCode} />
+          <Location setzip={this.setZipCode} submit={this.submitZipCode} />
           { !!this.state.zipCodeSubmitted && !this.state.zipCodeValid && 
             <Text style={{ color: '#fff', paddingTop: 24}}>The zip code you entered was not valid</Text>
           }

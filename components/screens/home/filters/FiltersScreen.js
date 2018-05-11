@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 import { LinearGradient } from 'expo';
 
@@ -81,11 +81,21 @@ export default class FiltersScreen extends Component {
 						gender={this.state.gender}
 						select={this.updateGender}
 					/>
+				<View style={styles.buttonContainer}>
 					<Button
-						containerStyle={styles.button}
+					  rounded
+					  buttonStyle={styles.cancelButton}
+						title="Cancel"
+						onPress={this.search}
+					/>
+					<Button
+					  rounded
+						titleStyle={{color: "#23d69d"}}
+					  buttonStyle={styles.searchButton}
 						title="Search"
 						onPress={this.search}
 					/>
+					</View>
 				</View>
 			</LinearGradient>
 		)
@@ -100,8 +110,18 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		width: '100%'
 	},
-	button: {
-		width: '100%',
-		backgroundColor: 'transparent'
-	}
+	buttonContainer: { 
+		flexDirection: 'row',
+		justifyContent: 'space-around', 
+	},
+	cancelButton: {
+		width: 190,
+		borderWidth: 1,
+		borderColor: '#fff',
+		backgroundColor: 'transparent',
+	},
+	searchButton: {
+		width: 190,
+		backgroundColor: '#fff',
+	},
 })
